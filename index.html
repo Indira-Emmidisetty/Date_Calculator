@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 350px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        
+        form {
+
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: black;
+            font-size: larger;
+            font-weight: bolder;
+        }
+        
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bolder;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            color: #333;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Date Calculator</h1>
+    
+    <form>
+        <label> Start Date</label>
+        <input type="date" id="start_date" /></br>
+
+        <label> End Date</label>
+        <input type="date" id="end_date" /> <br>
+
+        <button onclick="date_differnce()" type="button"  id="submit_button"> Submit </button>
+        <h1 id="result"></h1>
+    </form>
+</body>
+<script>
+    
+
+    function date_differnce(){
+        let start = document.getElementById('start_date').value;
+        let date1 = new Date(start).getTime();
+    
+        let end = document.getElementById('end_date').value;
+        let date2 = new Date(end).getTime();
+
+        let difference = date2-date1;
+
+        let days_difference = Math.round(difference / (1000 * 60 * 60 *24));
+
+        if (date1 && date2){
+            let result = document.getElementById('result');
+            result.innerHTML = days_difference + " days";
+        }
+        else{
+            let result = document.getElementById('result');
+        result.innerHTML = "Please Enter Both Dates";
+        }
+        
+        
+        
+        
+    }
+</script>
+</html>
